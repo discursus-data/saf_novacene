@@ -137,8 +137,7 @@ class NovaceneAPIClient:
                 "config": {
                     "host": StringSource,
                     "login": StringSource,
-                    "password": StringSource,
-                    "ml_relevancy_classification_model_id": IntSource
+                    "password": StringSource
                 }
             }
         }
@@ -149,6 +148,5 @@ def initiate_novacene_client(context):
     return NovaceneAPIClient(
         host = context.resource_config["resources"]["novacene_client"]["config"]["host"],
         login = context.resource_config["resources"]["novacene_client"]["config"]["login"],
-        password = context.resource_config["resources"]["novacene_client"]["config"]["password"],
-        ml_relevancy_classification_model_id = context.resource_config["resources"]["novacene_client"]["config"]["ml_relevancy_classification_model_id"]
+        password = context.resource_config["resources"]["novacene_client"]["config"]["password"]
     )
