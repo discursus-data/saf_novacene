@@ -1,12 +1,7 @@
 # The OSS Social Analytics Framework - Novacene library
 This library provides a client [resource](https://docs.dagster.io/concepts/resources) to interact with the [NovaceneAI](https://novacene.ai/) API.
 
-It is part of the [Social Analytics Framework](https://github.com/lantrns-analytics/saf_core). Please visit the repo for more information. And visit us at [lantrns.co](https://www.lantrns.co) for more context on our mission.
-
-&nbsp;
-
-# How to use this library
-Please refer to the [Social Analytics Framework](https://github.com/lantrns-analytics/saf_core) instructions for how to use a the framework and its libraries.
+It is part of the [Social Analytics Framework](https://github.com/lantrns-analytics/saf_core). Please visit the repo for more information on the framework, its mission and how to use it.
 
 &nbsp;
 
