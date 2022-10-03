@@ -4,7 +4,7 @@ from dagster.builtins import String
 import pandas as pd
 from io import StringIO
 
-class NovaceneAPIClient:
+class NovaceneAPIResource:
     def __init__(self, host, login, password):
         self._conn_host = host
         self._conn_login = login
@@ -133,7 +133,7 @@ class NovaceneAPIClient:
 @resource(
     config_schema={
         "resources": {
-            "novacene_client": {
+            "novacene_resource": {
                 "config": {
                     "host": StringSource,
                     "login": StringSource,
@@ -142,11 +142,11 @@ class NovaceneAPIClient:
             }
         }
     },
-    description="A Novacene API client.",
+    description="A Novacene API resource.",
 )
-def initiate_novacene_client(context):
-    return NovaceneAPIClient(
-        host = context.resource_config["resources"]["novacene_client"]["config"]["host"],
-        login = context.resource_config["resources"]["novacene_client"]["config"]["login"],
-        password = context.resource_config["resources"]["novacene_client"]["config"]["password"]
+def initiate_novacene_resource(context):
+    return NovaceneAPIResource(
+        host = context.resource_config["resources"]["novacene_resource"]["config"]["host"],
+        login = context.resource_config["resources"]["novacene_resource"]["config"]["login"],
+        password = context.resource_config["resources"]["novacene_resource"]["config"]["password"]
     )

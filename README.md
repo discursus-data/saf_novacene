@@ -1,5 +1,5 @@
 # The OSS Social Analytics Framework - Novacene library
-This library provides a client [resource](https://docs.dagster.io/concepts/resources) to interact with the [NovaceneAI](https://novacene.ai/) API.
+This library provides a [resource](https://docs.dagster.io/concepts/resources) to interact with the [NovaceneAI](https://novacene.ai/) API.
 
 It is part of the [Social Analytics Framework](https://github.com/lantrns-analytics/saf_core). Please visit the repo for more information on the framework, its mission and how to use it.
 
@@ -16,7 +16,7 @@ Here's an example of a config file:
 
 ```
 resources:
-  novacene_client:
+  novacene_resource:
     config:
       host: 
         env: NOVACENE_HOST
@@ -27,8 +27,8 @@ resources:
 ```
 
 # Methods
-## novacene_resource.initiate_novacene_client
-Initialize client to interact with the Novacene API
+## novacene_resource.initiate_novacene_resource
+Initialize resource to interact with the Novacene API
 
 Configurations:
 - novacene_configs: A configured resource for Novacene.
@@ -37,7 +37,7 @@ Example:
 ```
 novacene_configs = config_from_files(['configs/novacene_configs.yaml'])
 
-my_novacene_client_client = novacene_resource.initiate_novacene_client.configured(novacene_configs)
+my_novacene_resource = novacene_resource.initiate_novacene_resource.configured(novacene_configs)
 ```
 
 ## novacene_resource.create_dataset
@@ -52,7 +52,7 @@ Returns:
 
 Example:
 ```
-dataset_id = context.resources.novacene_client.create_dataset(filename, df_upload)
+dataset_id = context.resources.novacene_resource.create_dataset(filename, df_upload)
 ```
 
 ## novacene_resource.get_file
@@ -66,7 +66,7 @@ Returns:
 
 Example:
 ```
-df_file = context.resources.novacene_client.get_file(file_url)
+df_file = context.resources.novacene_resource.get_file(file_url)
 ```
 
 ## novacene_resource.enrich_dataset
@@ -82,7 +82,7 @@ Returns:
 
 Example:
 ```
-job_id = context.resources.novacene_client.enrich_dataset(dataset_id, model_id, col_id)
+job_id = context.resources.novacene_resource.enrich_dataset(dataset_id, model_id, col_id)
 ```
 
 ## novacene_resource.job_info
@@ -96,7 +96,7 @@ Returns:
 
 Example:
 ```
-job_info = context.resources.novacene_client.job_info(job_id)
+job_info = context.resources.novacene_resource.job_info(job_id)
 ```
 
 &nbsp;
