@@ -6,7 +6,7 @@ It is part of the [Social Analytics Framework](https://github.com/lantrns-analyt
 &nbsp;
 
 # How to use this library
-Please refer to the [Lantrns Analytics' data product framework](https://github.com/lantrns-analytics/saf_core) instructions for how to use a the framework and its libraries.
+Please refer to the [Social Analytics Framework](https://github.com/lantrns-analytics/saf_core) instructions for how to use a the framework and its libraries.
 
 &nbsp;
 
