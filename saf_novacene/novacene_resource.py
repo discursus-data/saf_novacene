@@ -70,6 +70,38 @@ class NovaceneAPIResource:
         response_json = response.json()
         
         return(response_json)
+    
+
+    def get_file(self, file_url):
+        """
+        Get file
+        """
+        
+        session, base_url = self.get_conn()
+
+        response = session.get(file_url)
+        df_file = pd.read_csv(StringIO(response.text))
+        
+        return(df_file)
+
+
+
+    def job_info(self, job_id):
+        """
+        Get job information.
+        """
+        
+        endpoint = "/job/" + str(job_id) + "/"
+        
+        session, base_url = self.get_conn()
+        url = base_url + endpoint
+
+        response = session.get(url)
+        
+        response.raise_for_status()
+        response_json = response.json()
+        
+        return(response_json)
 
 
     def enrich_dataset(self, dataset_id, model_id, column_id):
@@ -98,31 +130,24 @@ class NovaceneAPIResource:
         return(response_json)
     
 
-    def get_file(self, file_url):
+    def named_entity_recognition(self, dataset_id, column_id):
         """
-        Get file
-        """
-        
-        session, base_url = self.get_conn()
-
-        response = session.get(file_url)
-        df_file = pd.read_csv(StringIO(response.text))
-        
-        return(df_file)
-
-
-
-    def job_info(self, job_id):
-        """
-        Get job information.
+        Enriches a dataset.
         """
         
-        endpoint = "/job/" + str(job_id) + "/"
+        endpoint = "/studio/named_entity_recognition/"
         
         session, base_url = self.get_conn()
         url = base_url + endpoint
+        
+        payload = {
+            "datasetId": int(dataset_id),
+            "selectIdx": column_id
+        }
 
-        response = session.get(url)
+        response = session.get(
+            url, params = payload
+        )
         
         response.raise_for_status()
         response_json = response.json()
