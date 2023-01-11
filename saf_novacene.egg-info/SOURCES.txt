@@ -1,6 +1,9 @@
+.gitignore
 LICENSE
 README.md
+pull_request_template.md
 setup.py
+dist/saf_novacene-0.1.0-py3-none-any.whl
 saf_novacene/__init__.py
 saf_novacene/novacene_resource.py
 saf_novacene.egg-info/PKG-INFO

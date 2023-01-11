@@ -69,6 +69,20 @@ Example:
 df_file = context.resources.novacene_resource.get_file(file_url)
 ```
 
+## novacene_resource.job_info
+Retrieve information on a given job.
+
+Parameters:
+- job_id: A unique integer value identifying this enrichment jobs.
+
+Returns:
+- response_json: JSON object of job information.
+
+Example:
+```
+job_info = context.resources.novacene_resource.job_info(job_id)
+```
+
 ## novacene_resource.enrich_dataset
 Runs preditions on a dataset using previously trained models.
 
@@ -85,18 +99,19 @@ Example:
 job_id = context.resources.novacene_resource.enrich_dataset(dataset_id, model_id, col_id)
 ```
 
-## novacene_resource.job_info
-Retrieve information on a given job.
+## novacene_resource.named_entity_recognition
+Predicts the named entities in the input text based on Flair NER model.
 
 Parameters:
-- job_id: A unique integer value identifying this enrichment jobs.
+- dataset_id: ID of the dataset containing the input data.
+- col_id: the column index of the data that predictions will be run on. 
 
 Returns:
-- response_json: JSON object of job information.
+- response_json: JSON object on job created.
 
 Example:
 ```
-job_info = context.resources.novacene_resource.job_info(job_id)
+job_id = context.resources.novacene_resource.named_entity_recognition(dataset_id, col_id)
 ```
 
 &nbsp;
